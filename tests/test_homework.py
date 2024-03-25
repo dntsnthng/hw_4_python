@@ -1,3 +1,4 @@
+import random
 
 
 def test_greeting():
@@ -8,11 +9,8 @@ def test_greeting():
     l = "лет"
     output = f"{hi}, {name}! {u} {age} {l}."
     # TODO Сформируйте нужную строку
-
-
-    # Проверяем результат
+    print(output)
     assert output == "Привет, Анна! Тебе 25 лет."
-
 
 def test_rectangle():
     """
@@ -21,7 +19,7 @@ def test_rectangle():
     """
     a = 10
     b = 20
-    perimeter= (a*2)+(b*2)
+    perimeter= (a+b)*2
     area= a*b
     # TODO сосчитайте периметр
 
@@ -43,11 +41,13 @@ def test_circle():
     r = 23
     # TODO сосчитайте площадь
     area = math.pi*r**2
+    print(area)
 
     assert area == 1661.9025137490005
 
     # TODO сосчитайте длину окружности
     length = 2*math.pi*r
+    print(length)
 
     assert length == 144.51326206513048
 
@@ -59,7 +59,7 @@ def test_random_list():
     """
     # TODO создайте список
 
-    l = [1,22,15,88,54,60,18,2,10,100]
+    l = [random.randint(1, 100) for _ in range(10)]
     list.sort(l)
 
 
@@ -87,11 +87,9 @@ def test_dicts():
     Подсказка: используйте встроенную функцию zip.
     """
     first = ["a", "b", "c", "d", "e"]
-    dict_keys = list(first)
     second = [1, 2, 3, 4, 5]
-    dict_vals = list(second)
-    # TODO создайте словарь
-    d = {"a":1,"b":2,"c":3,"d":4,"e":5}
+      # TODO создайте словарь
+    d = dict(zip(first, second))
 
     assert isinstance(d, dict)
     assert len(d) == 5
